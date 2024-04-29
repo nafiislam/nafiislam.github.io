@@ -1,11 +1,3 @@
-/**
-* Template Name: DevFolio
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -232,5 +224,62 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
+
+  document.getElementById('show-more-btn').addEventListener('click', function() {
+    // Get all elements with the class 'hidden'
+    var hiddenElements = document.querySelectorAll('.skill-hidden');
+    
+    // Loop through each hidden element
+    for (var i = 0; i < hiddenElements.length; i++) {
+      // Change the display property to 'block' to reveal the element
+      hiddenElements[i].style.display = 'block';
+    }
+
+    this.style.display = 'none';
+  });
+
+  document.getElementById('show-more-btn-project').addEventListener('click', function() {
+    // Get all elements with the class 'hidden'
+    var hiddenElements = document.querySelectorAll('.project-hidden');
+    
+    // Loop through each hidden element
+    for (var i = 0; i < hiddenElements.length; i++) {
+      // Change the display property to 'block' to reveal the element
+      hiddenElements[i].style.display = 'block';
+    }
+
+    this.style.display = 'none';
+  });
+
+  document.getElementById('show-more-btn-certificate').addEventListener('click', function() {
+    // Get all elements with the class 'hidden'
+    var hiddenElements = document.querySelectorAll('.certificate-hidden');
+    
+    // Loop through each hidden element
+    for (var i = 0; i < hiddenElements.length; i++) {
+      // Change the display property to 'block' to reveal the element
+      hiddenElements[i].style.display = 'block';
+    }
+
+    this.style.display = 'none';
+  });
+  
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    // Get the textarea element by its id
+    var messageTextarea = document.getElementById('message');
+
+    // Get the value of the textarea
+    var message = messageTextarea.value;
+
+
+    var formData = new FormData(this); // Get form data
+    var mailtoLink = 'mailto:nafiislam964@gmail.com' +
+                     '?subject=' + encodeURIComponent(formData.get('subject')) +
+                     '&body=' + encodeURIComponent(message);
+
+    // Open default email client with pre-filled email
+    window.location.href = mailtoLink;
+  });
 
 })()
